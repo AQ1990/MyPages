@@ -22,7 +22,7 @@ concurrency:
 
 jobs:
   # Build job
-  build:
+  build-jekyll:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -38,7 +38,7 @@ jobs:
         uses: actions/upload-pages-artifact@v1
 
   # Deployment job
-  deploy:
+  deploy-jekyll:
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
