@@ -7,7 +7,7 @@
  
 
 * /src/Domain 
-[ ] /src/Application 
+- [ ] /src/Application 
 /src/Infrastructure 
 /src/Contracts/ 
 /src/PublicApi 
