@@ -32,6 +32,11 @@ MediatR.Extensions.Microsoft.DependencyInjection
 Microsoft.Extensions.DependencyInjection.Abstractions 
 Infrastructure 
  
+ В корне создать dockerfile
+     FROM httpd:alpine
+     COPY ./html/ /usr/local/apache2/htdocs/
+git-bash:
+docker-images
 
 * PublicApi: 
 DependencyInjection.cs 
