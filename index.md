@@ -65,8 +65,10 @@ DependencyInjection.cs
 Domain: 
 /Aggregates/User.cs 
 
- В корне создать dockerfile
+ * В корне создать dockerfile
      FROM httpd:alpine
      COPY ./html/ /usr/local/apache2/htdocs/
+
 git-bash:
-docker-images
+docker images
+docker build -t hello-docker:1.0.0 .
