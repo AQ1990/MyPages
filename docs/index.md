@@ -6,9 +6,10 @@
 * /src/Application 
 * /src/Infrastructure 
 * /src/Contracts/ 
-* Shared project: requests 
-/requests/Authentication/Register.http 
-/requests/Authentication/Login.http 
+* Shared project: requests
+
+- [ ] /requests/Authentication/Register.http 
+- /requests/Authentication/Login.http 
  
 
 
