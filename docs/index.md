@@ -11,9 +11,9 @@
 - [ ] /requests/Authentication/Register.http 
 * /requests/Authentication/Login.http 
 
-- [ ] Application, Infrastructure, Contracts, Domain Удалить везде Class1.cs 
+- [ ] Удалить везде Class1.cs 
 
-- [ ] Add reference
+- [ ] Добавить везде референсы
 
 | PublicApi | Infrastructure | Application |
 |-----------|----------------|-------------|
@@ -21,16 +21,15 @@
 |Infrastructure|||
 |Application|||
 
- 
+- [ ] Добавить пакеты
 
-* PublicApi: 
-System.Configuration.ConfigurationManager 
-Swashbuckle.AspNetCore 
-Application: 
-MediatR 
-MediatR.Extensions.Microsoft.DependencyInjection 
-Microsoft.Extensions.DependencyInjection.Abstractions 
-Infrastructure 
+| PublicApi | Infrastructure | Application |
+|-----------|----------------|-------------|
+|System.Configuration.ConfigurationManager | Application | Domain|
+|Swashbuckle.AspNetCore ||MediatR |
+|||MediatR.Extensions.Microsoft.DependencyInjection |
+|||Microsoft.Extensions.DependencyInjection.Abstractions |
+
 
 * PublicApi: 
 DependencyInjection.cs 
