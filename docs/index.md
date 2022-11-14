@@ -1,16 +1,17 @@
-# Blank Solution 
-/src
-    
+
+- [ ] Blank Solution 
+- [ ] /src
+* /src/PublicApi
+* /src/Domain 
+* /src/Application 
+* /src/Infrastructure 
+* /src/Contracts/ 
 * Shared project: requests 
 /requests/Authentication/Register.http 
 /requests/Authentication/Login.http 
  
 
-* /src/Domain 
-- [ ] /src/Application 
-/src/Infrastructure 
-/src/Contracts/ 
-/src/PublicApi 
+
  
 
 * Application, Infrastructure, Contracts, Domain Удалить везде Class1.cs 
