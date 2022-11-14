@@ -13,6 +13,7 @@
 
 - [ ] Удалить везде Class1.cs 
 
+
 - [ ] Добавить везде референсы
 
 | PublicApi | Infrastructure | Application |
@@ -20,6 +21,7 @@
 |Contracts| Application | Domain|
 |Infrastructure|||
 |Application|||
+
 
 - [ ] Добавить пакеты
 
