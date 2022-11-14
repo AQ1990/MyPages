@@ -1,6 +1,6 @@
 
 - [ ] Blank Solution 
-- [ ] /src
+* /src
 * /src/PublicApi
 * /src/Domain 
 * /src/Application 
@@ -9,20 +9,18 @@
 * Shared project: requests
 
 - [ ] /requests/Authentication/Register.http 
-- /requests/Authentication/Login.http 
- 
+* /requests/Authentication/Login.http 
 
+- [ ] Application, Infrastructure, Contracts, Domain Удалить везде Class1.cs 
 
- 
+- [ ] Add reference
 
-* Application, Infrastructure, Contracts, Domain Удалить везде Class1.cs 
- 
+| PublicApi | Infrastructure | Application |
+|-----------|----------------|-------------|
+|Contracts| Application | Domain|
+|Infrastructure|||
+|Application|||
 
-* PublicApi->Contracts 
-PublicApi->Application 
-PublicApi->Infrastructure 
-Infrastructure->Application 
-Application->Domain 
  
 
 * PublicApi: 
