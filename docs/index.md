@@ -99,7 +99,7 @@
     - User.cs 
   </details>
 
-- Добавить пакеты
+## Добавить пакеты
 
 | PublicApi | Infrastructure | Application |
 |-----------|----------------|-------------|
