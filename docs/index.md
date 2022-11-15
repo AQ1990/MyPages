@@ -2,13 +2,6 @@
 ## Создать проекты, добавить пакеты
 - Blank Solution
 
-- В корне создать dockerfile
-
-```dockerfile
-FROM httpd:alpine
-COPY ./html/ /usr/local/apache2/htdocs/
-```
-
 - Создать проекты
   - src/
   - src/**PublicApi** (Empty .Net)
@@ -417,3 +410,9 @@ COPY ./html/ /usr/local/apache2/htdocs/
   }
   ```
   </details>
+  - В корне создать dockerfile
+
+```dockerfile
+FROM httpd:alpine
+COPY ./html/ /usr/local/apache2/htdocs/
+```
