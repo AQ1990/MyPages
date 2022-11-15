@@ -246,12 +246,65 @@
   - **Application**    
     <details>
     <summary>Authentication/Common/AuthenticationResult.cs</summary>
+      
+      ```csharp
+      public record AuthenticationResult(
+          User User,
+          string Token);
+      ```
     </details>    
     <details>
     <summary>Authentication/Commands/Register/RegisterCommand.cs</summary>
     </details>
+      
+      ```csharp
+      public record RegisterCommand(
+        string FirstName,
+        string LastName,
+        string Email,
+        string Password) : IRequest<AuthenticationResult>;
+      ```
     <details>
     <summary>Authentication/Commands/Register/RegisterCommandHandler.cs</summary>
+      
+      ```csharp
+      public class RegisterCommandHandler :
+          IRequestHandler<RegisterCommand, AuthenticationResult>
+      {
+          private readonly IJwtTokenGenerator _jwttokengenerator;
+          private readonly IUserRepository _userRepository;
+
+          public RegisterCommandHandler(IJwtTokenGenerator jwtTokenGenerator,
+              IUserRepository userRepository)
+          {
+              _jwttokengenerator = jwtTokenGenerator;
+              _userRepository = userRepository;
+          }
+          public async Task<AuthenticationResult> Handle(RegisterCommand command, CancellationToken cancellationToken)
+          {
+              if (_userRepository.GetUserByEmail(command.Email) is not null)
+              {
+                  throw new Exception("User with given email already exists");
+              }
+
+              var user = new User
+              {
+                  FirstName = command.FirstName,
+                  LastName = command.LastName,
+                  Email = command.Email,
+                  Password = command.Password
+              };
+              _userRepository.Add(user);
+
+              Guid userId = Guid.NewGuid();
+              var token = _jwttokengenerator.GenerateToken(user);
+
+              return new AuthenticationResult(
+                  user,
+                  token);
+          }
+      }
+    ```
     </details>
     <details>
     <summary>Authentication/Queries/Login/LoginQuery.cs</summary>
