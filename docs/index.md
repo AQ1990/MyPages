@@ -370,6 +370,15 @@
 ## Другое
   
 - <details>
+      <summary>В корне создать dockerfile</summary>
+      
+      ```dockerfile
+      FROM httpd:alpine
+      COPY ./html/ /usr/local/apache2/htdocs/
+      ```
+  </details>
+      
+- <details>
     <summary>Докер bash-команды</summary>
 
     `docker images`
@@ -410,9 +419,3 @@
   }
   ```
   </details>
-  - В корне создать dockerfile
-
-```dockerfile
-FROM httpd:alpine
-COPY ./html/ /usr/local/apache2/htdocs/
-```
