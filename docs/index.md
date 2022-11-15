@@ -12,11 +12,11 @@ COPY ./html/ /usr/local/apache2/htdocs/
   - /src
   - /src/**PublicApi**
   - /src/**Contracts**
-  - /src/**Infrastructure **
-  - /src/**Application **
-  - /src/**Domain **
-  - Shared project: requests
-  - Shared project: docs
+  - /src/**Infrastructure**
+  - /src/**Application**
+  - /src/**Domain**
+  - Shared project: **requests**
+  - Shared project: **docs**
 
 - /requests/Authentication/Register.http 
   - /requests/Authentication/Login.http 
@@ -43,40 +43,62 @@ COPY ./html/ /usr/local/apache2/htdocs/
 |||Microsoft.Extensions.DependencyInjection.Abstractions |
 
 
-- PublicApi: 
-DependencyInjection.cs 
-Controllers/V1/AuthenticationController.cs 
-Controllers/V1/ErrorController.cs 
-Controllers/V1/PostsController.cs 
-Controllers/V1/TagsController.cs 
-Options/ApiSwaggerOptions.cs 
+- **PublicApi**:
+  - DependencyInjection.cs 
+  - Controllers
+    - V1
+      - AuthenticationController.cs 
+      - ErrorController.cs 
+      - PostsController.cs 
+      - TagsController.cs 
+  - Options
+    - ApiSwaggerOptions.cs 
  
-- Contracts: 
-V1/ApiRoutes.cs 
-V1/Authentication/Requests/RegisterRequest.cs 
-V1/Authentication/Requests/LoginRequest.cs 
-V1/Authentication/Responses/SuccessResponse.cs 
-V1/Authentication/Responses/FailedResponse.cs 
-Application: 
-DependencyInjection.cs 
-/Authentication/Common/AuthenticationResult.cs 
-/Authentication/Commands/Register/RegisterCommand.cs 
-/Authentication/Commands/Register/RegisterCommandHandler.cs 
-/Authentication/Queries/Login/LoginQuery.cs 
-/Authentication/Queries/Login/LoginQueryHandler.cs 
-/Common/Interfaces/Authentication/IJwtTokenGenerator.cs 
-/Common/Services/IDateTimeProvider.cs 
-/Persistence/IUserRepository.cs 
-Infrastructure: 
-DependencyInjection.cs 
-/Services/DateTimeProvider.cs 
-/Persistence/UserRepository.cs 
-/Authentication/JwtSettings.cs 
-/Authentication/JwtTokenGenerator.cs 
-Domain: 
-/Aggregates/User.cs 
+- **Contracts**:
+  - V1
+    - ApiRoutes.cs
+    - Authentication
+      - Requests
+        - RegisterRequest.cs
+        - LoginRequest.cs
+      - Responses
+        - SuccessResponse.cs
+        - FailedResponse.cs
 
+- **Application** 
+  - DependencyInjection.cs
+  - Authentication
+    - Common
+      - AuthenticationResult.cs 
+    - Commands
+      - Register
+        - RegisterCommand.cs 
+        - RegisterCommandHandler.cs 
+    - Queries
+      - Login
+        - LoginQuery.cs
+        - LoginQueryHandler.cs 
+  - Common
+    - Interfaces
+      - Authentication
+        - IJwtTokenGenerator.cs
+    - Services
+      - IDateTimeProvider.cs 
+  - Persistence
+    - IUserRepository.cs 
 
+- **Infrastructure**
+  - DependencyInjection.cs
+  - Services
+    - DateTimeProvider.cs 
+      - Persistence
+        - UserRepository.cs
+  - Authentication
+    - JwtSettings.cs
+    - JwtTokenGenerator.cs 
+- **Domain**
+  - Aggregates
+    - User.cs 
 
 git-bash:
 
