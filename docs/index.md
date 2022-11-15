@@ -231,7 +231,21 @@
             }
         }
       ```
-    </details>        
+    </details>
+    <details>
+    <summary>DependencyInjection.cs</summary>
+      
+      ```csharp
+        public static class DependencyInjection
+        {
+            public static IServiceCollection AddInfrastructure(this IServiceCollection services, ConfigurationManager config)
+            {
+                services.AddScoped<IUserRepository, UserRepository>();
+                return services;
+            }
+        }
+      ```
+    </details>   
       
 - ### Authentication
   - **Contracts**
