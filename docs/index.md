@@ -105,8 +105,7 @@
 |-----------|----------------|-------------|
 |System.Configuration.ConfigurationManager | Microsoft.Extensions.Configuration | Microsoft.Extensions.DependencyInjection |
 |Swashbuckle.AspNetCore | Microsoft.Extensions.Options.ConfigurationExtension |MediatR|
-| - | - | MediatR.Extensions.Microsoft.DependencyInjection |
-| - | System.IdentityModel.Tokens.Jwt | - |
+| - | System.IdentityModel.Tokens.Jwt | MediatR.Extensions.Microsoft.DependencyInjection |
 
 ## Код
 
