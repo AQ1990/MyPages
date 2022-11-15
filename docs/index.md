@@ -67,8 +67,11 @@ Domain:
 /Aggregates/User.cs 
 
  * В корне создать dockerfile
-`FROM httpd:alpine
-COPY ./html/ /usr/local/apache2/htdocs/`
+
+```
+FROM httpd:alpine
+COPY ./html/ /usr/local/apache2/htdocs/
+```
 
 git-bash:
 
