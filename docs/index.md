@@ -218,6 +218,16 @@ COPY ./html/ /usr/local/apache2/htdocs/
       ```
     </details>
     <details>
+      <summary>Options/ApiSwaggerOptions.cs</summary>
+      
+      ```csharp
+      public record ApiSwaggerOptions(
+          string JsonRoute = null!,
+          string UiEndpoint = null!,
+          string Description = null!);
+      ```
+    </details>
+    <details>
     <summary>Program.cs</summary>
     
     Добавить
