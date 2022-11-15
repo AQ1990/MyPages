@@ -71,5 +71,7 @@ Domain:
 COPY ./html/ /usr/local/apache2/htdocs/`
 
 git-bash:
+
 `docker images`
+
 `docker build -t hello-docker:1.0.0 .`
