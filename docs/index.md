@@ -147,14 +147,6 @@ COPY ./html/ /usr/local/apache2/htdocs/
       ```csharp
       public static IServiceCollection AddPresentation(this IServiceCollection services)
         {
-            services.AddSwaggerGen(x =>
-            {
-                x.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
-                {
-                    Title = "Api",
-                    Version = "v1"
-                });
-            });
             return services;
         }
       ```
@@ -188,7 +180,9 @@ COPY ./html/ /usr/local/apache2/htdocs/
   
 - **DateTime Provider**
 - **Swagger**
-  - <details><summary>Secrets</summary>
+  - **PublicApi**
+    <details>
+    <summary>Secrets</summary>
     
     ```json
     {
@@ -198,8 +192,11 @@ COPY ./html/ /usr/local/apache2/htdocs/
     }
     ```
     </details>
-  - <details><summary>PublicApi/Program.cs Добавить</summary>
-  
+    <details>
+    <summary>Program.cs</summary>
+    
+    Добавить
+    
     ```csharp
     var swaggerOptions = new ApiSwaggerOptions();
 
@@ -217,7 +214,20 @@ COPY ./html/ /usr/local/apache2/htdocs/
     });
     ```
     </details>
-  </details>
+    <details>
+      <summary>DependencyInjection.cs</summary>
+      
+      ```csharp
+      services.AddSwaggerGen(x =>
+      {
+          x.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+          {
+              Title = "Api",
+              Version = "v1"
+          });
+      });
+      ```
+    </details>
 - **JWT**
 - **Authentication**
   
