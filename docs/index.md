@@ -190,14 +190,6 @@ COPY ./html/ /usr/local/apache2/htdocs/
       ```
     </details>
 
-- <details>
-  <summary>http-файлы /requests/</summary>
-  
-  ```http
-    /requests/Authentication/Register.http 
-    /requests/Authentication/Login.http
-  ```
-  </details>
   
 ## Другое
   
@@ -207,4 +199,38 @@ COPY ./html/ /usr/local/apache2/htdocs/
     `docker images`
 
     `docker build -t hello-docker:1.0.0 .`
+  </details>
+  
+- <details>
+  <summary>http-запросы VS Code</summary>  
+  
+  **requests**/Authentication/Register.http
+  
+  ```http
+  @host=https://localhost:7056
+
+  POST {{host}}/auth/register
+  Content-type: application/json
+
+  {
+      "firstName": "Anton",
+      "lastName": "K",
+      "email": "ak@example.com",
+      "password": "P@ssword123!"
+  }  
+  ```
+  
+  **requests**/Authentication/Login.http
+  
+  ```http
+  @host=https://localhost:7056
+
+  POST {{host}}/auth/login
+  Content-type: application/json
+
+  {
+      "email": "ak@example.com",
+      "password": "P@ssword123!"
+  }
+  ```
   </details>
