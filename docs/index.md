@@ -10,14 +10,14 @@ COPY ./html/ /usr/local/apache2/htdocs/
 ```
 
 - Создать проекты
-  - /src
-  - /src/**PublicApi**
-  - /src/**Contracts**
-  - /src/**Infrastructure**
-  - /src/**Application**
-  - /src/**Domain**
-  - Shared project: **requests**
-  - Shared project: **docs**
+  - src/
+  - src/**PublicApi** (Empty .Net)
+  - src/**Contracts** (Class Library)
+  - src/**Infrastructure** (Class Library)
+  - src/**Application** (Class Library)
+  - src/**Domain** (Class Library)
+  - **requests** (Shared Project)
+  - **docs** (Shared Project)
 
 - Удалить везде Class1.cs 
 
@@ -42,7 +42,9 @@ COPY ./html/ /usr/local/apache2/htdocs/
 
 ## Добавить файлы
 
-- **PublicApi**:
+- <details>
+  <summary>PublicApi</summary>  
+  
   - DependencyInjection.cs 
   - Controllers
     - V1
@@ -53,8 +55,10 @@ COPY ./html/ /usr/local/apache2/htdocs/
   - Options
     - ApiSwaggerOptions.cs 
   - DependencyInjection.cs
+  </details>
  
-- **Contracts**:
+- <details><summary>Contracts</summary>
+
   - V1    
     - Authentication
       - Requests
@@ -70,8 +74,10 @@ COPY ./html/ /usr/local/apache2/htdocs/
       - Responses
         - PostResponse.cs 
     - ApiRoutes.cs
-
-- **Infrastructure**
+  </details>
+  
+- <details><summary>Infrastructure</summary>
+  
   - Authentication
     - JwtSettings.cs
     - JwtTokenGenerator.cs 
@@ -80,8 +86,10 @@ COPY ./html/ /usr/local/apache2/htdocs/
   - Services
     - DateTimeProvider.cs
    - DependencyInjection.cs
-
-- **Application** 
+  </details>
+  
+- <details><summary>Application</summary> 
+  
   - Authentication
     - Commands
       - Register
@@ -102,10 +110,13 @@ COPY ./html/ /usr/local/apache2/htdocs/
   - Persistence
     - IUserRepository.cs
   - DependencyInjection.cs
-
-- **Domain**
+  </details>
+  
+- <details><summary>Domain</summary>
+  
   - Aggregates
     - User.cs 
+  </details>
 
 ## Код
 
