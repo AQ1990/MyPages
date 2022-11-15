@@ -18,14 +18,6 @@ COPY ./html/ /usr/local/apache2/htdocs/
   - Shared project: **requests**
   - Shared project: **docs**
 
-- <details>
-  <summary>http-файлы /requests/</summary>
-  ```
-    /requests/Authentication/Register.http 
-    /requests/Authentication/Login.http
-  ```
-  </details>
-
 - Удалить везде Class1.cs 
 
 
@@ -194,6 +186,15 @@ COPY ./html/ /usr/local/apache2/htdocs/
       ```
     </details>
 
+- <details>
+  <summary>http-файлы /requests/</summary>
+  
+  ```http
+    /requests/Authentication/Register.http 
+    /requests/Authentication/Login.http
+  ```
+  </details>
+  
 - <details>
     <summary>Докер bash-команды</summary>
 
