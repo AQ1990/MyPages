@@ -1,30 +1,30 @@
 
-- [ ] Blank Solution
+- Blank Solution
 
- * В корне создать dockerfile
+- В корне создать dockerfile
 
 ```dockerfile
 FROM httpd:alpine
 COPY ./html/ /usr/local/apache2/htdocs/
 ```
 
-- [ ] Создать проекты
-* /src
-* /src/**PublicApi**
-* /src/**Contracts**
-* /src/**Infrastructure **
-* /src/**Application **
-* /src/**Domain **
-* Shared project: requests
-* Shared project: docs
+- Создать проекты
+  - /src
+  - /src/**PublicApi**
+  - /src/**Contracts**
+  - /src/**Infrastructure **
+  - /src/**Application **
+  - /src/**Domain **
+  - Shared project: requests
+  - Shared project: docs
 
-- [ ] /requests/Authentication/Register.http 
-* /requests/Authentication/Login.http 
+- /requests/Authentication/Register.http 
+  - /requests/Authentication/Login.http 
 
-- [ ] Удалить везде Class1.cs 
+- Удалить везде Class1.cs 
 
 
-- [ ] Добавить везде референсы
+- Добавить везде референсы
 
 | PublicApi | Infrastructure | Application |
 |-----------|----------------|-------------|
@@ -33,7 +33,7 @@ COPY ./html/ /usr/local/apache2/htdocs/
 |Application|||
 
 
-- [ ] Добавить пакеты
+- Добавить пакеты
 
 | PublicApi | Infrastructure | Application |
 |-----------|----------------|-------------|
@@ -43,7 +43,7 @@ COPY ./html/ /usr/local/apache2/htdocs/
 |||Microsoft.Extensions.DependencyInjection.Abstractions |
 
 
-* PublicApi: 
+- PublicApi: 
 DependencyInjection.cs 
 Controllers/V1/AuthenticationController.cs 
 Controllers/V1/ErrorController.cs 
@@ -51,7 +51,7 @@ Controllers/V1/PostsController.cs
 Controllers/V1/TagsController.cs 
 Options/ApiSwaggerOptions.cs 
  
-* Contracts: 
+- Contracts: 
 V1/ApiRoutes.cs 
 V1/Authentication/Requests/RegisterRequest.cs 
 V1/Authentication/Requests/LoginRequest.cs 
