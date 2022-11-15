@@ -238,7 +238,7 @@
       ```csharp
         public static class DependencyInjection
         {
-            public static IServiceCollection AddInfrastructure(this IServiceCollection services, ConfigurationManager config)
+            public static IServiceCollection AddInfrastructure(this IServiceCollection services)
             {
                 services.AddScoped<IUserRepository, UserRepository>();
                 return services;
