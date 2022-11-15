@@ -252,6 +252,49 @@ COPY ./html/ /usr/local/apache2/htdocs/
   
 - **JWT**
 - **Authentication**
+  - **Contracts**
+    <details>
+      <summary>V1/Authentication/Requests/RegisterRequest.cs</summary>
+
+      ```csharp
+      public record RegisterRequest(
+          string FirstName,
+          string LastName,
+          string Email,
+          string Password);
+      ```
+    </details>
+    <details>
+      <summary>V1/Authentication/Requests/LoginRequest.cs</summary>
+
+      ```csharp
+      public record LoginRequest(
+          string Email,
+          string Password);
+      ```
+    </details>
+    <details>
+      <summary>V1/Authentication/Responses/SuccessResponse.cs</summary>
+
+      ```csharp
+      public record SuccessResponse(
+          Guid Id,
+          string FirstName,
+          string LastName,
+          string Email,
+          string Token);
+      ```
+    </details>
+    <details>
+      <summary>V1/Authentication/Responses/FailedResponse.cs</summary>
+
+      ```csharp
+      public class FailedResponse
+      {
+
+      }
+      ```
+    </details>
   
 ## Другое
   
