@@ -103,9 +103,9 @@
 
 | PublicApi | Infrastructure | Application |
 |-----------|----------------|-------------|
-|System.Configuration.ConfigurationManager | Microsoft.Extensions.Configuration | MediatR |
-|Swashbuckle.AspNetCore | - |MediatR.Extensions.Microsoft.DependencyInjection |
-| - | Microsoft.Extensions.Options.ConfigurationExtension | Microsoft.Extensions.DependencyInjection |
+|System.Configuration.ConfigurationManager | Microsoft.Extensions.Configuration | Microsoft.Extensions.DependencyInjection |
+|Swashbuckle.AspNetCore | Microsoft.Extensions.Options.ConfigurationExtension |MediatR|
+| - | - | MediatR.Extensions.Microsoft.DependencyInjection |
 | - | System.IdentityModel.Tokens.Jwt | - |
 
 ## Код
