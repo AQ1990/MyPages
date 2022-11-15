@@ -228,6 +228,17 @@ COPY ./html/ /usr/local/apache2/htdocs/
       });
       ```
     </details>
+    <details>
+      <summary>appsettings.Development</summary>
+      
+      ```json
+        "ApiSwaggerOptions": {
+          "JsonRoute": "swagger/{documentName}/swagger.json",
+          "Description": "Our API",
+          "UIEndpoint":  "v1/swagger.json"
+        }
+      ```
+    </details>
 - **JWT**
 - **Authentication**
   
