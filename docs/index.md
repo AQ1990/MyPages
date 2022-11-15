@@ -255,62 +255,104 @@
     </details>    
     <details>
     <summary>Authentication/Commands/Register/RegisterCommand.cs</summary>
-    </details>
       
       ```csharp
-      public record RegisterCommand(
-        string FirstName,
-        string LastName,
-        string Email,
-        string Password) : IRequest<AuthenticationResult>;
+        public record RegisterCommand(
+          string FirstName,
+          string LastName,
+          string Email,
+          string Password) : IRequest<AuthenticationResult>;
       ```
+    </details>
+      
+
     <details>
     <summary>Authentication/Commands/Register/RegisterCommandHandler.cs</summary>
       
       ```csharp
-      public class RegisterCommandHandler :
-          IRequestHandler<RegisterCommand, AuthenticationResult>
-      {
-          private readonly IJwtTokenGenerator _jwttokengenerator;
-          private readonly IUserRepository _userRepository;
+        public class RegisterCommandHandler :
+            IRequestHandler<RegisterCommand, AuthenticationResult>
+        {
+            private readonly IJwtTokenGenerator _jwttokengenerator;
+            private readonly IUserRepository _userRepository;
 
-          public RegisterCommandHandler(IJwtTokenGenerator jwtTokenGenerator,
-              IUserRepository userRepository)
-          {
-              _jwttokengenerator = jwtTokenGenerator;
-              _userRepository = userRepository;
-          }
-          public async Task<AuthenticationResult> Handle(RegisterCommand command, CancellationToken cancellationToken)
-          {
-              if (_userRepository.GetUserByEmail(command.Email) is not null)
-              {
-                  throw new Exception("User with given email already exists");
-              }
+            public RegisterCommandHandler(IJwtTokenGenerator jwtTokenGenerator,
+                IUserRepository userRepository)
+            {
+                _jwttokengenerator = jwtTokenGenerator;
+                _userRepository = userRepository;
+            }
+            public async Task<AuthenticationResult> Handle(RegisterCommand command, CancellationToken cancellationToken)
+            {
+                if (_userRepository.GetUserByEmail(command.Email) is not null)
+                {
+                    throw new Exception("User with given email already exists");
+                }
 
-              var user = new User
-              {
-                  FirstName = command.FirstName,
-                  LastName = command.LastName,
-                  Email = command.Email,
-                  Password = command.Password
-              };
-              _userRepository.Add(user);
+                var user = new User
+                {
+                    FirstName = command.FirstName,
+                    LastName = command.LastName,
+                    Email = command.Email,
+                    Password = command.Password
+                };
+                _userRepository.Add(user);
 
-              Guid userId = Guid.NewGuid();
-              var token = _jwttokengenerator.GenerateToken(user);
+                Guid userId = Guid.NewGuid();
+                var token = _jwttokengenerator.GenerateToken(user);
 
-              return new AuthenticationResult(
-                  user,
-                  token);
-          }
-      }
+                return new AuthenticationResult(
+                    user,
+                    token);
+            }
+        }
     ```
     </details>
     <details>
     <summary>Authentication/Queries/Login/LoginQuery.cs</summary>
+      
+      ```csharp
+        public record LoginQuery(string Email, string Password)
+                : IRequest<AuthenticationResult>;
+      ```
     </details>
     <details>
     <summary>Authentication/Queries/Login/LoginQueryHandler.cs</summary>
+      
+      ```csharp
+        public class LoginQueryHandler :
+            IRequestHandler<LoginQuery, AuthenticationResult>
+        {
+            private readonly IJwtTokenGenerator _jwttokengenerator;
+            private readonly IUserRepository _userRepository;
+
+            public LoginQueryHandler(IJwtTokenGenerator jwtTokenGenerator,
+                IUserRepository userRepository)
+            {
+                _jwttokengenerator = jwtTokenGenerator;
+                _userRepository = userRepository;
+            }
+
+            public async Task<AuthenticationResult> Handle(LoginQuery query, CancellationToken cancellationToken)
+            {
+                if (_userRepository.GetUserByEmail(query.Email) is not User user)
+                {
+                    throw new Exception("User with given email does not exist");
+                }
+
+                if (user.Password != query.Password)
+                {
+                    throw new Exception("Invalid password");
+                }
+
+                var token = _jwttokengenerator.GenerateToken(user);
+
+                return new AuthenticationResult(
+                    user,
+                    token);
+            }
+        }
+      ```
     </details>      
       
   - **PublicApi**
