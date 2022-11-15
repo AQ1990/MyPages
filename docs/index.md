@@ -135,21 +135,6 @@ COPY ./html/ /usr/local/apache2/htdocs/
 
       var app = builder.Build();
       {
-          var swaggerOptions = new ApiSwaggerOptions();
-  
-          builder.Configuration.GetSection(nameof(ApiSwaggerOptions))
-              .Bind(swaggerOptions);
-  
-          app.UseSwagger(option =>
-          {
-              option.RouteTemplate = swaggerOptions.JsonRoute;
-          });
-  
-          app.UseSwaggerUI(option =>
-          {
-              option.SwaggerEndpoint(swaggerOptions.UiEndpoint, swaggerOptions.Description);
-          });
-
           app.UseHttpsRedirection();
           app.MapControllers();
           app.Run();
@@ -203,6 +188,36 @@ COPY ./html/ /usr/local/apache2/htdocs/
   
 - **DateTime Provider**
 - **Swagger**
+  - <details><summary>Secrets</summary>
+    
+    ```json
+    {
+      "JwtSettings": {
+        "Secret": "super-secret-secret"
+      }
+    }
+    ```
+    </details>
+  - <details><summary>PublicApi/Program.cs Добавить</summary>
+  
+    ```csharp
+    var swaggerOptions = new ApiSwaggerOptions();
+
+    builder.Configuration.GetSection(nameof(ApiSwaggerOptions))
+        .Bind(swaggerOptions);
+
+    app.UseSwagger(option =>
+    {
+        option.RouteTemplate = swaggerOptions.JsonRoute;
+    });
+
+    app.UseSwaggerUI(option =>
+    {
+        option.SwaggerEndpoint(swaggerOptions.UiEndpoint, swaggerOptions.Description);
+    });
+    ```
+    </details>
+  </details>
 - **JWT**
 - **Authentication**
   
