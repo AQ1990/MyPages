@@ -193,6 +193,31 @@ COPY ./html/ /usr/local/apache2/htdocs/
     ```
     </details>
     <details>
+      <summary>appsettings.Development</summary>
+      
+      ```json
+        "ApiSwaggerOptions": {
+          "JsonRoute": "swagger/{documentName}/swagger.json",
+          "Description": "Our API",
+          "UIEndpoint":  "v1/swagger.json"
+        }
+      ```
+    </details>
+    <details>
+      <summary>DependencyInjection.cs</summary>
+      
+      ```csharp
+      services.AddSwaggerGen(x =>
+      {
+          x.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+          {
+              Title = "Api",
+              Version = "v1"
+          });
+      });
+      ```
+    </details>
+    <details>
     <summary>Program.cs</summary>
     
     Добавить
@@ -214,31 +239,7 @@ COPY ./html/ /usr/local/apache2/htdocs/
     });
     ```
     </details>
-    <details>
-      <summary>DependencyInjection.cs</summary>
-      
-      ```csharp
-      services.AddSwaggerGen(x =>
-      {
-          x.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
-          {
-              Title = "Api",
-              Version = "v1"
-          });
-      });
-      ```
-    </details>
-    <details>
-      <summary>appsettings.Development</summary>
-      
-      ```json
-        "ApiSwaggerOptions": {
-          "JsonRoute": "swagger/{documentName}/swagger.json",
-          "Description": "Our API",
-          "UIEndpoint":  "v1/swagger.json"
-        }
-      ```
-    </details>
+  
 - **JWT**
 - **Authentication**
   
