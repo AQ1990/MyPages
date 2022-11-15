@@ -189,7 +189,11 @@ COPY ./html/ /usr/local/apache2/htdocs/
         }
       ```
     </details>
-
+  
+- DateTime Provider
+- Swagger
+- JWT
+- Authentication
   
 ## Другое
   
