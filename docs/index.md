@@ -105,3 +105,84 @@ git-bash:
 `docker images`
 
 `docker build -t hello-docker:1.0.0 .`
+
+- Зависимости
+  - <details>
+      <summary>PublicApi/Program.cs</summary>
+
+      ```csharp
+      var builder = WebApplication.CreateBuilder(args);
+      {
+          builder.Services.AddApplication();
+          builder.Services.AddInfrastructure(builder.Configuration);
+          builder.Services.AddPresentation();
+          builder.Services.AddControllers();
+      }
+
+      var app = builder.Build();
+      {
+          var swaggerOptions = new ApiSwaggerOptions();
+  
+          builder.Configuration.GetSection(nameof(ApiSwaggerOptions))
+              .Bind(swaggerOptions);
+  
+          app.UseSwagger(option =>
+          {
+              option.RouteTemplate = swaggerOptions.JsonRoute;
+          });
+  
+          app.UseSwaggerUI(option =>
+          {
+              option.SwaggerEndpoint(swaggerOptions.UiEndpoint, swaggerOptions.Description);
+          });
+
+          app.UseHttpsRedirection();
+          app.MapControllers();
+          app.Run();
+      }
+      ```
+    </details>
+  - <details>
+      <summary>PublicApi/DependencyInjection.cs</summary>
+      
+      ```csharp
+      public static IServiceCollection AddPresentation(this IServiceCollection services)
+        {
+            services.AddSwaggerGen(x =>
+            {
+                x.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+                {
+                    Title = "Api",
+                    Version = "v1"
+                });
+            });
+            return services;
+        }
+      ```
+    </details>
+  - <details>
+      <summary>Infrastructure/DependencyInjection.cs</summary>
+      
+      ```csharp
+      public static IServiceCollection AddInfrastructure(this IServiceCollection services, ConfigurationManager config)
+        {
+            services.Configure<JwtSettings>(config.GetSection(JwtSettings.SectionName));
+            services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
+            services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            return services;
+        }
+      ```
+    </details>
+  - <details>
+      <summary>Application/DependencyInjection.cs</summary>
+      
+      ```csharp
+      public static IServiceCollection AddApplication(this IServiceCollection services)
+        {
+            services.AddMediatR(typeof(DependencyInjection).Assembly);
+            return services;
+        }
+      ```
+    </details>
