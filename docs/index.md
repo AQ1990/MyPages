@@ -18,8 +18,13 @@ COPY ./html/ /usr/local/apache2/htdocs/
   - Shared project: **requests**
   - Shared project: **docs**
 
-- /requests/Authentication/Register.http 
-  - /requests/Authentication/Login.http 
+- <details>
+  <summary>http-файлы /requests/</summary>
+  ```
+    /requests/Authentication/Register.http 
+    /requests/Authentication/Login.http
+  ```
+  </details>
 
 - Удалить везде Class1.cs 
 
