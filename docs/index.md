@@ -204,6 +204,16 @@ COPY ./html/ /usr/local/apache2/htdocs/
       ```
     </details>
     <details>
+      <summary>Options/ApiSwaggerOptions.cs</summary>
+      
+      ```csharp
+      public record ApiSwaggerOptions(
+          string JsonRoute = null!,
+          string UiEndpoint = null!,
+          string Description = null!);
+      ```
+    </details>
+    <details>
       <summary>DependencyInjection.cs</summary>
       
       ```csharp
@@ -215,16 +225,6 @@ COPY ./html/ /usr/local/apache2/htdocs/
               Version = "v1"
           });
       });
-      ```
-    </details>
-    <details>
-      <summary>Options/ApiSwaggerOptions.cs</summary>
-      
-      ```csharp
-      public record ApiSwaggerOptions(
-          string JsonRoute = null!,
-          string UiEndpoint = null!,
-          string Description = null!);
       ```
     </details>
     <details>
