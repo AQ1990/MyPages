@@ -34,22 +34,6 @@
 | - | System.IdentityModel.Tokens.Jwt | - |
 
 ## Добавить файлы
-
-- <details>
-  <summary>PublicApi</summary>  
-  
-  - DependencyInjection.cs 
-  - Controllers
-    - V1
-      - AuthenticationController.cs 
-      - PostsController.cs
-      - TagsController.cs
-      - ErrorController.cs
-  - Options
-    - ApiSwaggerOptions.cs 
-  - DependencyInjection.cs
-  </details>
- 
 - <details><summary>Contracts</summary>
 
   - V1    
@@ -68,7 +52,21 @@
         - PostResponse.cs 
     - ApiRoutes.cs
   </details>
+
+- <details>
+  <summary>PublicApi</summary>  
   
+  - Controllers
+    - V1
+      - AuthenticationController.cs 
+      - PostsController.cs
+      - TagsController.cs
+      - ErrorController.cs
+  - Options
+    - ApiSwaggerOptions.cs 
+  - DependencyInjection.cs
+  </details>
+   
 - <details><summary>Infrastructure</summary>
   
   - Authentication
