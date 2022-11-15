@@ -199,7 +199,7 @@ COPY ./html/ /usr/local/apache2/htdocs/
   ```
   </details>
   
-# Другое
+## Другое
   
 - <details>
     <summary>Докер bash-команды</summary>
