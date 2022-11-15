@@ -197,7 +197,53 @@
       services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
       ```
     </details>
-  
+
+- ### Repository
+  - **Application**
+    <details>
+    <summary>Persistence/UserRepository.cs</summary>
+    </details>
+      
+      ```csharp
+        public class UserRepository : IUserRepository
+        {
+            private static readonly List<User> _users = new();
+
+            public User? GetUserByEmail(string email)
+            {
+                return _users.SingleOrDefault(u => u.Email == email);
+            }
+
+            public void Add(User user)
+            {
+                _users.Add(user);
+            }
+        }
+      ```
+    </details>
+  - **Infrastructure**
+    <details>
+    <summary>Persistence/UserRepository.cs</summary>
+    </details>
+      
+      ```csharp
+        public class UserRepository : IUserRepository
+        {
+            private static readonly List<User> _users = new();
+
+            public User? GetUserByEmail(string email)
+            {
+                return _users.SingleOrDefault(u => u.Email == email);
+            }
+
+            public void Add(User user)
+            {
+                _users.Add(user);
+            }
+        }
+      ```
+    </details>        
+      
 - ### Authentication
   - **Contracts**
     <details>
@@ -243,7 +289,7 @@
       ```
     </details>
 
-  - **Application**    
+  - **Application**
     <details>
     <summary>Authentication/Common/AuthenticationResult.cs</summary>
       
