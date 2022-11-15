@@ -1,12 +1,22 @@
 
-- [ ] Blank Solution 
+- [ ] Blank Solution
+
+ * В корне создать dockerfile
+
+```
+FROM httpd:alpine
+COPY ./html/ /usr/local/apache2/htdocs/
+```
+
+- [ ] Создать проекты
 * /src
-* /src/PublicApi
-* /src/Domain 
-* /src/Application 
-* /src/Infrastructure 
-* /src/Contracts/ 
+* /src/**PublicApi**
+* /src/**Contracts**
+* /src/**Infrastructure **
+* /src/**Application **
+* /src/**Domain **
 * Shared project: requests
+* Shared project: docs
 
 - [ ] /requests/Authentication/Register.http 
 * /requests/Authentication/Login.http 
@@ -66,12 +76,7 @@ DependencyInjection.cs
 Domain: 
 /Aggregates/User.cs 
 
- * В корне создать dockerfile
 
-```
-FROM httpd:alpine
-COPY ./html/ /usr/local/apache2/htdocs/
-```
 
 git-bash:
 
