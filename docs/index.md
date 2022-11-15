@@ -48,15 +48,15 @@ COPY ./html/ /usr/local/apache2/htdocs/
   - Controllers
     - V1
       - AuthenticationController.cs 
-      - ErrorController.cs 
-      - PostsController.cs 
-      - TagsController.cs 
+      - PostsController.cs
+      - TagsController.cs
+      - ErrorController.cs
   - Options
     - ApiSwaggerOptions.cs 
+  - DependencyInjection.cs
  
 - **Contracts**:
-  - V1
-    - ApiRoutes.cs
+  - V1    
     - Authentication
       - Requests
         - RegisterRequest.cs
@@ -64,16 +64,32 @@ COPY ./html/ /usr/local/apache2/htdocs/
       - Responses
         - SuccessResponse.cs
         - FailedResponse.cs
+    - Posts
+      - Requests
+        - CreatePostRequest.cs
+        - UpdatePostRequest.cs
+      - Responses
+        - PostResponse.cs 
+    - ApiRoutes.cs
+
+- **Infrastructure**
+  - Authentication
+    - JwtSettings.cs
+    - JwtTokenGenerator.cs 
+  - Persistence
+    - UserRepository.cs
+  - Services
+    - DateTimeProvider.cs
+   - DependencyInjection.cs
 
 - **Application** 
-  - DependencyInjection.cs
   - Authentication
-    - Common
-      - AuthenticationResult.cs 
     - Commands
       - Register
         - RegisterCommand.cs 
         - RegisterCommandHandler.cs 
+    - Common
+      - AuthenticationResult.cs 
     - Queries
       - Login
         - LoginQuery.cs
@@ -85,28 +101,14 @@ COPY ./html/ /usr/local/apache2/htdocs/
     - Services
       - IDateTimeProvider.cs 
   - Persistence
-    - IUserRepository.cs 
+    - IUserRepository.cs
+  - DependencyInjection.cs
 
-- **Infrastructure**
-  - Authentication
-    - JwtSettings.cs
-    - JwtTokenGenerator.cs 
-  - Persistence
-    - UserRepository.cs
-  - Services
-    - DateTimeProvider.cs
-   - DependencyInjection.cs 
 - **Domain**
   - Aggregates
     - User.cs 
 
-git-bash:
-
-`docker images`
-
-`docker build -t hello-docker:1.0.0 .`
-
-- Зависимости
+- DI
   - <details>
       <summary>PublicApi/Program.cs</summary>
 
@@ -186,3 +188,11 @@ git-bash:
         }
       ```
     </details>
+
+- <details>
+    <summary>Докер bash-команды</summary>
+
+    `docker images`
+
+    `docker build -t hello-docker:1.0.0 .`
+  </details>
