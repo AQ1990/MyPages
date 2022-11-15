@@ -199,7 +199,7 @@
     </details>
 
 - ### Repository
-  - **Application**
+  - **Domain**
     <details>
     <summary>Aggregates/User.cs</summary>
       
