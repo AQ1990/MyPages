@@ -120,7 +120,7 @@ COPY ./html/ /usr/local/apache2/htdocs/
 
 ## Код
 
-- DI
+- **Dependency Injection**
   - <details>
       <summary>PublicApi/Program.cs</summary>
 
@@ -201,10 +201,10 @@ COPY ./html/ /usr/local/apache2/htdocs/
       ```
     </details>
   
-- DateTime Provider
-- Swagger
-- JWT
-- Authentication
+- **DateTime Provider**
+- **Swagger**
+- **JWT**
+- **Authentication**
   
 ## Другое
   
