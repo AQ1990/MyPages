@@ -23,16 +23,6 @@
 |Infrastructure|||
 |Application|||
 
-
-- Добавить пакеты
-
-| PublicApi | Infrastructure | Application |
-|-----------|----------------|-------------|
-|System.Configuration.ConfigurationManager | Microsoft.Extensions.Configuration | MediatR |
-|Swashbuckle.AspNetCore | Microsoft.Extensions.DependencyInjection.Abstractions |MediatR.Extensions.Microsoft.DependencyInjection |
-| - | Microsoft.Extensions.Options.ConfigurationExtension | Microsoft.Extensions.DependencyInjection.Abstractions |
-| - | System.IdentityModel.Tokens.Jwt | - |
-
 ## Добавить файлы
 - <details><summary>Contracts</summary>
 
@@ -108,6 +98,15 @@
   - Aggregates
     - User.cs 
   </details>
+
+- Добавить пакеты
+
+| PublicApi | Infrastructure | Application |
+|-----------|----------------|-------------|
+|System.Configuration.ConfigurationManager | Microsoft.Extensions.Configuration | MediatR |
+|Swashbuckle.AspNetCore | Microsoft.Extensions.DependencyInjection.Abstractions |MediatR.Extensions.Microsoft.DependencyInjection |
+| - | Microsoft.Extensions.Options.ConfigurationExtension | Microsoft.Extensions.DependencyInjection.Abstractions |
+| - | System.IdentityModel.Tokens.Jwt | - |
 
 ## Код
 
