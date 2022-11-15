@@ -1,4 +1,5 @@
 
+## Создать проекты, добавить пакеты
 - Blank Solution
 
 - В корне создать dockerfile
@@ -39,6 +40,7 @@ COPY ./html/ /usr/local/apache2/htdocs/
 |||MediatR.Extensions.Microsoft.DependencyInjection |
 |||Microsoft.Extensions.DependencyInjection.Abstractions |
 
+## Добавить файлы
 
 - **PublicApi**:
   - DependencyInjection.cs 
@@ -104,6 +106,8 @@ COPY ./html/ /usr/local/apache2/htdocs/
 - **Domain**
   - Aggregates
     - User.cs 
+
+## Код
 
 - DI
   - <details>
@@ -194,6 +198,8 @@ COPY ./html/ /usr/local/apache2/htdocs/
     /requests/Authentication/Login.http
   ```
   </details>
+  
+# Другое
   
 - <details>
     <summary>Докер bash-команды</summary>
