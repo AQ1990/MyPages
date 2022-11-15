@@ -202,7 +202,6 @@
   - **Application**
     <details>
     <summary>Persistence/UserRepository.cs</summary>
-    </details>
       
       ```csharp
         public class UserRepository : IUserRepository
@@ -224,7 +223,6 @@
   - **Infrastructure**
     <details>
     <summary>Persistence/UserRepository.cs</summary>
-    </details>
       
       ```csharp
         public class UserRepository : IUserRepository
