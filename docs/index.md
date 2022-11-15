@@ -253,6 +253,53 @@ COPY ./html/ /usr/local/apache2/htdocs/
       }
       ```
     </details>
+    <details>
+      <summary>Controllers/V1/AuthenticationController.cs</summary>
+      
+      ```csharp
+      [ApiController]
+      [Route("auth")]
+      public class AuthenticationController : ControllerBase
+      {
+          private readonly ISender _mediator;
+
+          public AuthenticationController(
+              IMediator mediator)
+          {
+              _mediator = mediator;
+          }
+
+          [HttpPost("register")]
+          public async Task<IActionResult> Register(RegisterRequest request)
+          {
+              var command = new RegisterCommand(request.FirstName, request.LastName, request.Email, request.Password);
+              var authResult = await _mediator.Send(command);
+
+              var authResponse = new SuccessResponse(
+                  authResult.User.Id,
+                  authResult.User.FirstName,
+                  authResult.User.LastName,
+                  authResult.User.Email,
+                  authResult.Token);
+              return Ok(request);
+          }
+
+          [HttpPost("login")]
+          public async Task<IActionResult> Login(LoginRequest request)
+          {
+              var query = new LoginQuery(request.Email, request.Password);
+              var authResult = await _mediator.Send(query);
+              var authResponse = new SuccessResponse(
+                  authResult.User.Id,
+                  authResult.User.FirstName,
+                  authResult.User.LastName,
+                  authResult.User.Email,
+                  authResult.Token);
+              return Ok(request);
+          }
+      }
+      ```
+    </details>
 
 - ### Swagger
   - **PublicApi**
