@@ -88,14 +88,14 @@ COPY ./html/ /usr/local/apache2/htdocs/
     - IUserRepository.cs 
 
 - **Infrastructure**
-  - DependencyInjection.cs
-  - Services
-    - DateTimeProvider.cs 
-      - Persistence
-        - UserRepository.cs
   - Authentication
     - JwtSettings.cs
     - JwtTokenGenerator.cs 
+  - Persistence
+    - UserRepository.cs
+  - Services
+    - DateTimeProvider.cs
+   - DependencyInjection.cs 
 - **Domain**
   - Aggregates
     - User.cs 
