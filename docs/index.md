@@ -35,10 +35,10 @@ COPY ./html/ /usr/local/apache2/htdocs/
 
 | PublicApi | Infrastructure | Application |
 |-----------|----------------|-------------|
-|System.Configuration.ConfigurationManager | Application | Domain|
-|Swashbuckle.AspNetCore ||MediatR |
-|||MediatR.Extensions.Microsoft.DependencyInjection |
-|||Microsoft.Extensions.DependencyInjection.Abstractions |
+|System.Configuration.ConfigurationManager | Microsoft.Extensions.Configuration | MediatR |
+|Swashbuckle.AspNetCore | Microsoft.Extensions.DependencyInjection.Abstractions |MediatR.Extensions.Microsoft.DependencyInjection |
+| - | Microsoft.Extensions.Options.ConfigurationExtension | Microsoft.Extensions.DependencyInjection.Abstractions |
+| - | System.IdentityModel.Tokens.Jwt | - |
 
 ## Добавить файлы
 
