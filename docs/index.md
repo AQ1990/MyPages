@@ -120,7 +120,42 @@ COPY ./html/ /usr/local/apache2/htdocs/
 
 ## Код
 
-- **Dependency Injection**
+- ### Dependency Injection
+  - <details>
+      <summary>PublicApi/DependencyInjection.cs</summary>
+      
+      ```csharp
+      public static IServiceCollection AddPresentation(this IServiceCollection services)
+        {
+            return services;
+        }
+      ```
+    </details>
+  - <details>
+      <summary>Infrastructure/DependencyInjection.cs</summary>
+      
+      ```csharp
+      public static IServiceCollection AddInfrastructure(this IServiceCollection services, ConfigurationManager config)
+        {
+            services.Configure<JwtSettings>(config.GetSection(JwtSettings.SectionName));
+            services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
+
+            services.AddScoped<IUserRepository, UserRepository>();
+            return services;
+        }
+      ```
+    </details>
+  - <details>
+      <summary>Application/DependencyInjection.cs</summary>
+      
+      ```csharp
+      public static IServiceCollection AddApplication(this IServiceCollection services)
+        {
+            services.AddMediatR(typeof(DependencyInjection).Assembly);
+            return services;
+        }
+      ```
+    </details>
   - <details>
       <summary>PublicApi/Program.cs</summary>
 
@@ -141,45 +176,85 @@ COPY ./html/ /usr/local/apache2/htdocs/
       }
       ```
     </details>
-  - <details>
-      <summary>PublicApi/DependencyInjection.cs</summary>
+  
+- ### DateTime Provider
+  - **Application**
+    <details>
+      <summary>Common/Services/IDateTimeProvider.cs</summary>
       
       ```csharp
-      public static IServiceCollection AddPresentation(this IServiceCollection services)
-        {
-            return services;
-        }
+      public interface IDateTimeProvider
+      {
+          DateTime UtcNow { get; }
+      }
       ```
     </details>
-  - <details>
-      <summary>Infrastructure/DependencyInjection.cs</summary>
+  - **Infrastructure**
+    <details>
+      <summary>Services/DateTimeProvider.cs</summary>
       
       ```csharp
-      public static IServiceCollection AddInfrastructure(this IServiceCollection services, ConfigurationManager config)
-        {
-            services.Configure<JwtSettings>(config.GetSection(JwtSettings.SectionName));
-            services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
-            services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
-
-            services.AddScoped<IUserRepository, UserRepository>();
-            return services;
-        }
+      public class DateTimeProvider : IDateTimeProvider
+      {
+          public DateTime UtcNow => DateTime.UtcNow;
+      }
       ```
     </details>
-  - <details>
-      <summary>Application/DependencyInjection.cs</summary>
+    <details>
+      <summary>DependencyInjection.cs</summary>
+      Добавить
       
       ```csharp
-      public static IServiceCollection AddApplication(this IServiceCollection services)
-        {
-            services.AddMediatR(typeof(DependencyInjection).Assembly);
-            return services;
-        }
+      services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
       ```
     </details>
   
-- **DateTime Provider**
-- **Swagger**
+- ### Authentication
+  - **Contracts**
+    <details>
+      <summary>V1/Authentication/Requests/RegisterRequest.cs</summary>
+
+      ```csharp
+      public record RegisterRequest(
+          string FirstName,
+          string LastName,
+          string Email,
+          string Password);
+      ```
+    </details>
+    <details>
+      <summary>V1/Authentication/Requests/LoginRequest.cs</summary>
+
+      ```csharp
+      public record LoginRequest(
+          string Email,
+          string Password);
+      ```
+    </details>
+    <details>
+      <summary>V1/Authentication/Responses/SuccessResponse.cs</summary>
+
+      ```csharp
+      public record SuccessResponse(
+          Guid Id,
+          string FirstName,
+          string LastName,
+          string Email,
+          string Token);
+      ```
+    </details>
+    <details>
+      <summary>V1/Authentication/Responses/FailedResponse.cs</summary>
+
+      ```csharp
+      public class FailedResponse
+      {
+
+      }
+      ```
+    </details>
+
+- ### Swagger
   - **PublicApi**
     <details>
     <summary>Secrets</summary>
@@ -250,51 +325,7 @@ COPY ./html/ /usr/local/apache2/htdocs/
     ```
     </details>
   
-- **JWT**
-- **Authentication**
-  - **Contracts**
-    <details>
-      <summary>V1/Authentication/Requests/RegisterRequest.cs</summary>
-
-      ```csharp
-      public record RegisterRequest(
-          string FirstName,
-          string LastName,
-          string Email,
-          string Password);
-      ```
-    </details>
-    <details>
-      <summary>V1/Authentication/Requests/LoginRequest.cs</summary>
-
-      ```csharp
-      public record LoginRequest(
-          string Email,
-          string Password);
-      ```
-    </details>
-    <details>
-      <summary>V1/Authentication/Responses/SuccessResponse.cs</summary>
-
-      ```csharp
-      public record SuccessResponse(
-          Guid Id,
-          string FirstName,
-          string LastName,
-          string Email,
-          string Token);
-      ```
-    </details>
-    <details>
-      <summary>V1/Authentication/Responses/FailedResponse.cs</summary>
-
-      ```csharp
-      public class FailedResponse
-      {
-
-      }
-      ```
-    </details>
+- ### JWT
   
 ## Другое
   
