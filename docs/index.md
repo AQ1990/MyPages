@@ -242,6 +242,26 @@
       }
       ```
     </details>
+
+  - **Application**    
+    <details>
+    <summary>Authentication/Common/AuthenticationResult.cs</summary>
+    </details>    
+    <details>
+    <summary>Authentication/Commands/Register/RegisterCommand.cs</summary>
+    </details>
+    <details>
+    <summary>Authentication/Commands/Register/RegisterCommandHandler.cs</summary>
+    </details>
+    <details>
+    <summary>Authentication/Queries/Login/LoginQuery.cs</summary>
+    </details>
+    <details>
+    <summary>Authentication/Queries/Login/LoginQueryHandler.cs</summary>
+    </details>      
+      
+  - **PublicApi**
+      
     <details>
       <summary>Controllers/V1/AuthenticationController.cs</summary>
       
