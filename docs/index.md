@@ -19,9 +19,9 @@
 
 | Web | Presentation | Infrastructure | Application |
 |-----|-----------|----------------|-------------|
-|Presentation|Web| Application | Domain|
-||Infrastructure|||
-||Application|||
+| Presentation | Web | Application | Domain|
+| Infrastructure | Infrastructure |||
+| Application | Application |||
 
 ## Добавить файлы
 - <details><summary>Web</summary>
