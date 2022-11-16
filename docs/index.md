@@ -102,7 +102,7 @@
 
 ## Добавить пакеты
 
-| PublicApi | Infrastructure | Application |
+| Presentation | Infrastructure | Application |
 |-----------|----------------|-------------|
 |System.Configuration.ConfigurationManager | Microsoft.Extensions.Configuration | Microsoft.Extensions.DependencyInjection |
 |Swashbuckle.AspNetCore | Microsoft.Extensions.Options.ConfigurationExtension |MediatR|
@@ -115,7 +115,7 @@
 
 - ### Dependency Injection
   - <details>
-      <summary>PublicApi/DependencyInjection.cs</summary>
+      <summary>Web/DependencyInjection.cs</summary>
       
       ```csharp
       public static IServiceCollection AddPresentation(this IServiceCollection services)
@@ -150,7 +150,7 @@
       ```
     </details>
   - <details>
-      <summary>PublicApi/Program.cs</summary>
+      <summary>Web/Program.cs</summary>
 
       ```csharp
       var builder = WebApplication.CreateBuilder(args);
@@ -433,7 +433,7 @@
       ```
     </details>      
       
-  - **PublicApi**
+  - **Presentation**
       
     <details>
       <summary>Controllers/V1/AuthenticationController.cs</summary>
@@ -484,7 +484,7 @@
     </details>
 
 - ### Swagger
-  - **PublicApi**
+  - **Web**
     <details>
     <summary>Secrets</summary>
     
