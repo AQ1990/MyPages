@@ -42,6 +42,8 @@
         - Responses
           - PostResponse.cs 
       - ApiRoutes.cs
+  - Options
+    - ApiSwaggerOptions.cs 
   </details>
 
 - <details>
@@ -53,8 +55,6 @@
       - PostsController.cs
       - TagsController.cs
       - ErrorController.cs
-  - Options
-    - ApiSwaggerOptions.cs 
   - DependencyInjection.cs
   </details>
    
