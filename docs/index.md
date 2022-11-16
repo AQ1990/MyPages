@@ -105,7 +105,10 @@
 |-----------|----------------|-------------|
 |System.Configuration.ConfigurationManager | Microsoft.Extensions.Configuration | Microsoft.Extensions.DependencyInjection |
 |Swashbuckle.AspNetCore | Microsoft.Extensions.Options.ConfigurationExtension |MediatR|
-| - | System.IdentityModel.Tokens.Jwt | MediatR.Extensions.Microsoft.DependencyInjection |
+| - | Microsoft.EntityFrameworkCore.SqlServer | MediatR.Extensions.Microsoft.DependencyInjection |
+| - | Microsoft.EntityFrameworkCore.Tools | - |
+| - | Microsoft.AspNetCore.Identity.EntityFrameworkCore | - |
+| - | System.IdentityModel.Tokens.Jwt | - |
 
 ## Код
 
@@ -198,6 +201,15 @@
       ```
     </details>
 
+- ### DbContext
+  - **Infrastructure**
+    <details>
+    <summary>Persistence/ApplicationDbContext.cs</summary>
+      
+      ```csharp
+      ```
+    </details>
+      
 - ### Repository
   - **Domain**
     <details>
