@@ -4,7 +4,7 @@
 
 - Создать проекты
   - src/
-  - src/**PublicApi** (Empty .Net)
+  - src/**Web** (Empty .Net)
   - src/**Presentation** (Class Library)
   - src/**Infrastructure** (Class Library)
   - src/**Application** (Class Library)
@@ -17,14 +17,15 @@
 
 - Добавить везде референсы
 
-| Presentation | Infrastructure | Application |
-|-----------|----------------|-------------|
-|Web| Application | Domain|
-|Infrastructure|||
-|Application|||
+| Web | Presentation | Infrastructure | Application |
+|-----|-----------|----------------|-------------|
+|Presentation|Web| Application | Domain|
+||Infrastructure|||
+||Application|||
 
 ## Добавить файлы
 - <details><summary>Web</summary>
+  
   -Contracts
     - V1    
       - Authentication
