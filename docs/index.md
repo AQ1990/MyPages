@@ -556,6 +556,12 @@
   
 - ### JWT
   
+## Тесты
+  
+- Создать проекты
+  - tests/
+  - tests/**Architecture.Tests**
+
 ## Другое
   
 - <details>
