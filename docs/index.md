@@ -115,7 +115,7 @@
 
 - ### Dependency Injection
   - <details>
-      <summary>Web/DependencyInjection.cs</summary>
+      <summary>Presentation/DependencyInjection.cs</summary>
       
       ```csharp
       public static IServiceCollection AddPresentation(this IServiceCollection services)
