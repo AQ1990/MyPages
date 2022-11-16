@@ -210,7 +210,7 @@
       ```
     </details>
   </details>    
-- ### Repository
+- ### User Repository
   - **Domain**
     <details>
     <summary>Aggregates/User.cs</summary>
