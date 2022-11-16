@@ -277,9 +277,9 @@
     </details>   
       
 - ### Authentication
-  - **Contracts**
+  - **Web**
     <details>
-      <summary>V1/Authentication/Requests/RegisterRequest.cs</summary>
+      <summary>Contracts/V1/Authentication/Requests/RegisterRequest.cs</summary>
 
       ```csharp
       public record RegisterRequest(
@@ -290,7 +290,7 @@
       ```
     </details>
     <details>
-      <summary>V1/Authentication/Requests/LoginRequest.cs</summary>
+      <summary>Contracts/V1/Authentication/Requests/LoginRequest.cs</summary>
 
       ```csharp
       public record LoginRequest(
@@ -299,7 +299,7 @@
       ```
     </details>
     <details>
-      <summary>V1/Authentication/Responses/SuccessResponse.cs</summary>
+      <summary>Contracts/V1/Authentication/Responses/SuccessResponse.cs</summary>
 
       ```csharp
       public record SuccessResponse(
@@ -311,7 +311,7 @@
       ```
     </details>
     <details>
-      <summary>V1/Authentication/Responses/FailedResponse.cs</summary>
+      <summary>Contracts/V1/Authentication/Responses/FailedResponse.cs</summary>
 
       ```csharp
       public class FailedResponse
