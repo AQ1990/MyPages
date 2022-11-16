@@ -113,10 +113,6 @@
 ## Код
 
 - ### Dependency Injection
-  <details>
-  <summary>Expand</summary>
-  
-  
   - <details>
       <summary>PublicApi/DependencyInjection.cs</summary>
       
@@ -172,11 +168,8 @@
       }
       ```
     </details>
-  </details>
   
 - ### DateTime Provider
-  <details>
-  <summary>Expand</summary>
   - **Application**
     <details>
       <summary>Common/Services/IDateTimeProvider.cs</summary>
@@ -207,10 +200,8 @@
       services.AddSingleton<IDateTimeProvider, DateTimeProvider>();
       ```
     </details>
-    </details>
+
 - ### DbContext
-  <details>
-  <summary>Expand</summary>
   - **Infrastructure**
     <details>
     <summary>Persistence/ApplicationDbContext.cs</summary>
