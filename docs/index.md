@@ -113,6 +113,7 @@
 ## Код
 
 - ### Dependency Injection
+  <details>
   - <details>
       <summary>PublicApi/DependencyInjection.cs</summary>
       
@@ -168,6 +169,7 @@
       }
       ```
     </details>
+  </details>
   
 - ### DateTime Provider
   - **Application**
