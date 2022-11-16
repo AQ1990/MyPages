@@ -5,7 +5,7 @@
 - Создать проекты
   - src/
   - src/**PublicApi** (Empty .Net)
-  - src/**Contracts** (Class Library)
+  - src/**Presentation** (Class Library)
   - src/**Infrastructure** (Class Library)
   - src/**Application** (Class Library)
   - src/**Domain** (Class Library)
@@ -17,34 +17,34 @@
 
 - Добавить везде референсы
 
-| PublicApi | Infrastructure | Application |
+| Presentation | Infrastructure | Application |
 |-----------|----------------|-------------|
-|Contracts| Application | Domain|
+|Web| Application | Domain|
 |Infrastructure|||
 |Application|||
 
 ## Добавить файлы
-- <details><summary>Contracts</summary>
-
-  - V1    
-    - Authentication
-      - Requests
-        - RegisterRequest.cs
-        - LoginRequest.cs
-      - Responses
-        - SuccessResponse.cs
-        - FailedResponse.cs
-    - Posts
-      - Requests
-        - CreatePostRequest.cs
-        - UpdatePostRequest.cs
-      - Responses
-        - PostResponse.cs 
-    - ApiRoutes.cs
+- <details><summary>Web</summary>
+  -Contracts
+    - V1    
+      - Authentication
+        - Requests
+          - RegisterRequest.cs
+          - LoginRequest.cs
+        - Responses
+          - SuccessResponse.cs
+          - FailedResponse.cs
+      - Posts
+        - Requests
+          - CreatePostRequest.cs
+          - UpdatePostRequest.cs
+        - Responses
+          - PostResponse.cs 
+      - ApiRoutes.cs
   </details>
 
 - <details>
-  <summary>PublicApi</summary>  
+  <summary>Presentation</summary>  
   
   - Controllers
     - V1
