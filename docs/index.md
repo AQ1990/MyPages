@@ -26,7 +26,7 @@
 ## Добавить файлы
 - <details><summary>Web</summary>
   
-  -Contracts
+  - Contracts
     - V1    
       - Authentication
         - Requests
