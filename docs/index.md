@@ -114,6 +114,8 @@
 
 - ### Dependency Injection
   <details>
+  <summary>Expand</summary>
+  
   
   - <details>
       <summary>PublicApi/DependencyInjection.cs</summary>
