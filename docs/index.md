@@ -165,7 +165,10 @@
       var app = builder.Build();
       {
           app.UseHttpsRedirection();
-          app.MapControllers();
+          
+          Assembly presentationAssembly = typeof(Presentation.AssemblyReference).Assembly;
+          app.MapControllers().AddApplicationPart(presentationAssembly);
+  
           app.Run();
       }
       ```
