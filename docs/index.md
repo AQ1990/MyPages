@@ -203,18 +203,32 @@
     </details>
 
 - ### DbContext & Unit of Work
+  - **Web**
+    <details>
+    <summary>appsettings.json</summary>
+      
+    ```csharp
+        "ConnectionStrings": {
+    "DefaultConnection": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Portfolio2022;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+  }
+    ```
+    </details>
   - **Infrastructure**
     <details>
     <summary>Persistence/ApplicationDbContext.cs</summary>
       
       ```csharp
-      public class ApplicationDbContext : IdentityDbContext
-      {
-          public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-          {
+        public class ApplicationDbContext : IdentityDbContext
+        {
+            public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+            {
 
-          }
-      }
+            }
+
+            public DbSet<User> Users { get; set; }
+
+            public DbSet<Post> Posts { get; set; }
+        }
       ```
     </details>  
       
