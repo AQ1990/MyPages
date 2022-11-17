@@ -202,7 +202,7 @@
       ```
     </details>
 
-- ### Repository
+- ### DbContext & Unit of Work
   - **Infrastructure**
     <details>
     <summary>Persistence/ApplicationDbContext.cs</summary>
@@ -261,7 +261,8 @@
         }
       ```
     </details>   
-  
+
+- ### User Repository  
   - **Domain**
     <details>
     <summary>Aggregates/User.cs</summary>
