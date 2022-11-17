@@ -254,6 +254,18 @@
       ```
     </details>
 
+    <details>
+    <summary>DependencyInjection.cs</summary>
+      
+      ```csharp
+        public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+        {
+            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(configuration["DefaultConnection"]));
+        }
+      ```
+      
+    </details>
+      
   - **Application**
     <details>
     <summary>Persistence/IUnitOfWork.cs</summary>
