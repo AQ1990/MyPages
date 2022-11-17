@@ -627,10 +627,10 @@
       ```csharp
       services.AddSwaggerGen(x =>
       {
-          x.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
+          x.SwaggerDoc("V1", new Microsoft.OpenApi.Models.OpenApiInfo
           {
               Title = "Api",
-              Version = "v1"
+              Version = "V1"
           });
       });
       ```
