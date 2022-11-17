@@ -207,10 +207,11 @@
     <details>
     <summary>appsettings.json</summary>
       
-    ```csharp
+    ```json
         "ConnectionStrings": {
-    "DefaultConnection": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Portfolio2022;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
-  }
+        "DefaultConnection": "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Portfolio2022;Integrated Security=True;
+        Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False"
+        }
     ```
     </details>
   - **Infrastructure**
