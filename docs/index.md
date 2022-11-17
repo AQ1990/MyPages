@@ -202,15 +202,6 @@
       ```
     </details>
 
-- ### DbContext
-  - **Infrastructure**
-    <details>
-    <summary>Persistence/ApplicationDbContext.cs</summary>
-      
-      ```csharp
-      ```
-    </details>
-  </details>    
 - ### Repository
   - **Infrastructure**
     <details>
