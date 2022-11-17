@@ -145,10 +145,6 @@
       ```csharp
       public static IServiceCollection AddInfrastructure(this IServiceCollection services, ConfigurationManager config)
         {
-            services.Configure<JwtSettings>(config.GetSection(JwtSettings.SectionName));
-            services.AddSingleton<IJwtTokenGenerator, JwtTokenGenerator>();
-
-            services.AddScoped<IUserRepository, UserRepository>();
             return services;
         }
       ```
