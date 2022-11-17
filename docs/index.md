@@ -17,6 +17,7 @@
 
 - Добавить везде референсы
 
+
 | Web | Presentation | Infrastructure | Application |
 |-----|-----------|----------------|-------------|
 | Presentation | Web | Application | Domain|
@@ -102,14 +103,18 @@
 
 ## Добавить пакеты
 
-| Web | Presentation | Infrastructure | Application |
-|-----|-----------|----------------|-------------|
-| Microsoft.AspNetCore.Identity.EntityFrameworkCore |System.Configuration.ConfigurationManager | Microsoft.Extensions.Configuration | Microsoft.Extensions.DependencyInjection |
-| - |Swashbuckle.AspNetCore | Microsoft.Extensions.Options.ConfigurationExtension |MediatR|
-| - | - | Microsoft.EntityFrameworkCore.SqlServer | MediatR.Extensions.Microsoft.DependencyInjection |
-| - | - | Microsoft.EntityFrameworkCore.Tools | - |
-| - | - | Microsoft.AspNetCore.Identity.EntityFrameworkCore | - |
-| - | - | System.IdentityModel.Tokens.Jwt | - |
+| Web |
+|-----|
+| Microsoft.AspNetCore.Identity.EntityFrameworkCore |
+
+| Presentation | Infrastructure | Application |
+|-----------|----------------|-------------|
+| System.Configuration.ConfigurationManager | Microsoft.Extensions.Configuration | Microsoft.Extensions.DependencyInjection |
+|Swashbuckle.AspNetCore | Microsoft.Extensions.Options.ConfigurationExtension |MediatR|
+| - | Microsoft.EntityFrameworkCore.SqlServer | MediatR.Extensions.Microsoft.DependencyInjection |
+| - | Microsoft.EntityFrameworkCore.Tools | - |
+| - | Microsoft.AspNetCore.Identity.EntityFrameworkCore | - |
+| - | System.IdentityModel.Tokens.Jwt | - |
 
 ## Код
 
