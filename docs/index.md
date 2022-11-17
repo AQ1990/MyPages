@@ -103,15 +103,11 @@
 
 ## Добавить пакеты
 
-| Web |
-|-----|
-| Microsoft.AspNetCore.Identity.EntityFrameworkCore |
-
 | Presentation | Infrastructure | Application |
 |-----------|----------------|-------------|
 | System.Configuration.ConfigurationManager | Microsoft.Extensions.Configuration | Microsoft.Extensions.DependencyInjection |
 |Swashbuckle.AspNetCore | Microsoft.Extensions.Options.ConfigurationExtension |MediatR|
-| - | Microsoft.EntityFrameworkCore.SqlServer | MediatR.Extensions.Microsoft.DependencyInjection |
+| Microsoft.AspNetCore.Identity.EntityFrameworkCore | Microsoft.EntityFrameworkCore.SqlServer | MediatR.Extensions.Microsoft.DependencyInjection |
 | - | Microsoft.EntityFrameworkCore.Tools | - |
 | - | Microsoft.AspNetCore.Identity.EntityFrameworkCore | - |
 | - | System.IdentityModel.Tokens.Jwt | - |
