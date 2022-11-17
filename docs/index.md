@@ -403,7 +403,7 @@
       ```
     </details> 
 
-- ### User Repository  
+- ### Post Repository  
   - **Domain**
     <details>
     <summary>Entities/Post.cs</summary>
