@@ -246,21 +246,7 @@
       ```csharp
      
       ```
-    </details>        
-    <details>
-    <summary>DependencyInjection.cs</summary>
-      
-      ```csharp
-        public static class DependencyInjection
-        {
-            public static IServiceCollection AddInfrastructure(this IServiceCollection services)
-            {
-                services.AddScoped<IUserRepository, UserRepository>();
-                return services;
-            }
-        }
-      ```
-    </details>   
+    </details>          
 
 - ### User Repository  
   - **Domain**
@@ -312,6 +298,21 @@
         }
       ```
     </details>
+    <details>
+    <summary>DependencyInjection.cs</summary>
+      
+      ```csharp
+        public static class DependencyInjection
+        {
+            public static IServiceCollection AddInfrastructure(this IServiceCollection services)
+            {
+                services.AddScoped<IUserRepository, UserRepository>();
+                return services;
+            }
+        }
+      ```
+    </details> 
+      
       
 - ### Authentication
   - **Web**
