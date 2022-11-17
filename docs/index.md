@@ -409,21 +409,137 @@
     <summary>Entities/Post.cs</summary>
     
     ```csharp
-      public class Post
-      {
-          [Key]
-          //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-          public Guid Id { get; set; }
-
-          public string Name { get; set; }
-
-          public string UserId { get; set; }
-
-          [ForeignKey(nameof(UserId))]
-          public IdentityUser User { get; set; }
-      }
+        public class Post : Entity<int>
+        {
+            public DateTime CreationDate { get; set; }
+            public string Author { get; set; }
+            public string Title { get; set; }
+            public string Content { get; set; }
+            public DateTime? DisplayUntil { get; set; }
+            public string UserId { get; set; }
+            public virtual ICollection<Tag> Tags { get; set; }
+        }
     ```
     </details>
+
+    <details>
+    <summary>Entities/Tag.cs</summary>
+    
+    ```csharp
+        public class Tag : Entity<int>
+        {
+            public string Text { get; set; }
+
+            public int? PostId { get; set; }
+
+            [ForeignKey(nameof(PostId))]
+            public Post Post { get; set; }
+        }
+    ```
+    </details>      
+
+    <summary>Entities/IPostService.cs</summary>
+    
+    ```csharp
+      public interface IPostService : ITweetbookAppService<Post,int>
+      {
+          Task<IEnumerable<Tag>> GetTagsByPostAsync(int postId);
+          Task<Tag> CreatePostTagAsync(Tag tag);
+      }
+    ```
+    </details>       
+
+    <summary>Entities/PostService.cs</summary>
+    
+    ```csharp
+        public class PostService : TweetbookAppService<Post>, IPostService
+        {
+            //private readonly IHttpContextAccessor _httpContextAccessor;
+
+            //public PostService(DataContext dataContext, IHttpContextAccessor httpContextAccessor) : base(dataContext)
+            //{
+            //    _httpContextAccessor = httpContextAccessor;
+            //}
+
+            public PostService(DataContext dataContext) : base(dataContext) {}
+
+            public override async Task<bool> UpdateAsync(Post item)
+            {
+                CheckInstanceAvailability();
+
+                var itemToUpdate = await GetByIdAsync(item.Id);
+                if (itemToUpdate == null)
+                    return await Task.FromResult(false);
+
+                //The infrastructure evaluates for us via PostOwnershipValidationFilter where applied
+                //But what if the developer forgets to decorate the endpoint with the attribute aforementioned?
+                //In this case, uncomment the line below or adopt a better coding strategy*
+                //if (!CurrentUserIsOwner(itemToUpdate.UserId))
+                //    return await Task.FromResult(false);
+                //*throw new SecurityException("Access denied to the request resource or operation")
+
+                //DataContext.Set<T>().Update(item); //See next line below
+
+                //https://stackoverflow.com/questions/7106211/entity-framework-why-explicitly-set-entity-state-to-modified
+                item.UserId = itemToUpdate.UserId;
+                DataContext.Entry(itemToUpdate).CurrentValues.SetValues(item);
+
+                var updated = await DataContext.SaveChangesAsync() > 0;
+
+                return await Task.FromResult(updated);
+            }
+
+            public override async Task<bool> RemoveAsync(int id)
+            {
+                CheckInstanceAvailability();
+
+                var itemToRemove = await GetByIdAsync(id);
+                if (itemToRemove != null)
+                {
+                    //The infrastructure evaluates for us via PostOwnershipValidationFilter where applied
+                    //But what if the developer forgets to decorate the endpoint with the attribute aforementioned?
+                    //In this case, uncomment the line below or adopt a better coding strategy*
+                    //if (!CurrentUserIsOwner(itemToRemove.UserId))
+                    //    return await Task.FromResult(false);
+                    //*throw new SecurityException("Access denied to the request resource or operation")
+
+                    DataContext.Entry(itemToRemove).State = EntityState.Deleted;
+                    await DataContext.SaveChangesAsync();
+                }
+
+                return await Task.FromResult(true);
+            }
+
+            public async Task<IEnumerable<Tag>> GetTagsByPostAsync(int postId)
+            {
+                //TODO: Implement get tags by post id method
+                CheckInstanceAvailability();
+
+                return await Task.FromResult(Enumerable.Empty<Tag>());
+            }
+
+            public async Task<Tag> CreatePostTagAsync(Tag tag)
+            {
+                CheckInstanceAvailability();
+
+                var relatedPost = await GetByIdAsync(tag.PostId.Value);
+                if (relatedPost != null)
+                {
+                    await DataContext.Tags.AddAsync(tag);
+                    var created = await DataContext.SaveChangesAsync() > 0;
+
+                    return await Task.FromResult(created ? tag : null);
+                }
+
+                return await Task.FromResult((Tag)null);
+            }
+
+            //The infrastructure evaluates for us via PostOwnershipValidationFilter where applied
+            //private bool CurrentUserIsOwner(string postUserId) => string.Equals(_httpContextAccessor.HttpContext.GetCurrentUserId(),
+              postUserId, StringComparison.Ordinal);
+        }
+    ```
+    </details>   
       
 - ### Authentication
   - **Web**
