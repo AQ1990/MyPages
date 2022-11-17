@@ -731,3 +731,44 @@
   }
   ```
   </details>
+
+- <details>
+  <summary>Установка сервисов ASP.NET через Assembly</summary>  
+  
+  **requests**IInstaller.cs
+  
+  ```csharp
+    public interface IInstaller
+    {
+        void InstallServices(IServiceCollection services, IConfiguration configuration);
+    }
+  ```
+
+  IInstaller.cs
+  
+  ```csharp
+    public interface IInstaller
+    {
+        void InstallServices(IServiceCollection services, IConfiguration configuration);
+    }
+  ```
+  
+  InstallerExtensions.cs
+  
+  ```csharp
+    public static class InstallerExtensions
+    {
+        //Вызвать в services Program.cs
+        public static void InstallServicesInAssembly(this IServiceCollection services, IConfiguration configuration)
+        {
+            var installers = typeof(Program).Assembly.ExportedTypes.Where(x => typeof(IInstaller).IsAssignableFrom(x)
+            && !x.IsInterface && !x.IsAbstract) //Найти все классы реализующие IInstaller, которые не интерфейсы и не абстрактные
+            .Select(Activator.CreateInstance) //Создать экземпляр каждого
+            .Cast<IInstaller>() //Привести к типу IInstaller
+            .ToList(); //Сделать List
+
+            installers.ForEach(installer => installer.InstallServices(services, configuration));
+        }
+    }
+  ```
+  </details>
