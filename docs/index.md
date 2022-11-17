@@ -97,7 +97,7 @@
   
 - <details><summary>Domain</summary>
   
-  - Aggregates
+  - Entities
     - User.cs 
   </details>
 
@@ -402,7 +402,28 @@
         }
       ```
     </details> 
-      
+
+- ### User Repository  
+  - **Domain**
+    <details>
+    <summary>Entities/Post.cs</summary>
+    
+    ```csharp
+      public class Post
+      {
+          [Key]
+          //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+          public Guid Id { get; set; }
+
+          public string Name { get; set; }
+
+          public string UserId { get; set; }
+
+          [ForeignKey(nameof(UserId))]
+          public IdentityUser User { get; set; }
+      }
+    ```
+    </details>
       
 - ### Authentication
   - **Web**
