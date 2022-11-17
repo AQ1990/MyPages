@@ -735,15 +735,6 @@
 - <details>
   <summary>Установка сервисов ASP.NET через Assembly</summary>  
   
-  **requests**IInstaller.cs
-  
-  ```csharp
-    public interface IInstaller
-    {
-        void InstallServices(IServiceCollection services, IConfiguration configuration);
-    }
-  ```
-
   IInstaller.cs
   
   ```csharp
