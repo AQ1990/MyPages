@@ -28,7 +28,7 @@
 - <details><summary>Web</summary>
   
   - Contracts
-    - V1    
+    - v1    
       - Authentication
         - Requests
           - RegisterRequest.cs
@@ -51,7 +51,7 @@
   <summary>Presentation</summary>  
   
   - Controllers
-    - V1
+    - v1
       - AuthenticationController.cs 
       - PostsController.cs
       - TagsController.cs
@@ -394,7 +394,7 @@
 - ### Authentication
   - **Web**
     <details>
-      <summary>Contracts/V1/Authentication/Requests/RegisterRequest.cs</summary>
+      <summary>Contracts/v1/Authentication/Requests/RegisterRequest.cs</summary>
 
       ```csharp
       public record RegisterRequest(
@@ -405,7 +405,7 @@
       ```
     </details>
     <details>
-      <summary>Contracts/V1/Authentication/Requests/LoginRequest.cs</summary>
+      <summary>Contracts/v1/Authentication/Requests/LoginRequest.cs</summary>
 
       ```csharp
       public record LoginRequest(
@@ -414,7 +414,7 @@
       ```
     </details>
     <details>
-      <summary>Contracts/V1/Authentication/Responses/SuccessResponse.cs</summary>
+      <summary>Contracts/v1/Authentication/Responses/SuccessResponse.cs</summary>
 
       ```csharp
       public record SuccessResponse(
@@ -426,7 +426,7 @@
       ```
     </details>
     <details>
-      <summary>Contracts/V1/Authentication/Responses/FailedResponse.cs</summary>
+      <summary>Contracts/v1/Authentication/Responses/FailedResponse.cs</summary>
 
       ```csharp
       public class FailedResponse
@@ -551,7 +551,7 @@
   - **Presentation**
       
     <details>
-      <summary>Controllers/V1/AuthenticationController.cs</summary>
+      <summary>Controllers/v1/AuthenticationController.cs</summary>
       
       ```csharp
       [ApiController]
@@ -627,10 +627,10 @@
       ```csharp
       services.AddSwaggerGen(x =>
       {
-          x.SwaggerDoc("V1", new Microsoft.OpenApi.Models.OpenApiInfo
+          x.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo
           {
               Title = "Api",
-              Version = "V1"
+              Version = "v1"
           });
       });
       ```
