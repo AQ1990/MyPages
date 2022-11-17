@@ -278,8 +278,57 @@
       ```csharp
      
       ```
-    </details>          
+    </details>
+      
+- ### Identity
+  - **Web**
+    <details>
+    <summary>Program.cs</summary>
+      
+    ```csharp
+      var builder = WebApplication.CreateBuilder(args);
+      {
+          builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+          {
+              options.Password.RequireDigit = false;
+              options.Password.RequireNonAlphanumeric = false;
+              options.Password.RequireUppercase = false;
+              options.Password.RequiredLength = 6;
+          })
+              .AddRoles<IdentityRole>()
+              .AddEntityFrameworkStores<ApplicationDbContext>();
+      }
+      var app = builder.Build();
+      {
+          {
+              IServiceScope scope = app.Services.CreateScope();
+              ApplicationDbContext ctx = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+              UserManager<IdentityUser> userManager = scope.ServiceProvider.GetRequiredService<UserManager<IdentityUser>>();
+              RoleManager<IdentityRole> roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
 
+              ctx.Database.EnsureCreated();
+
+              IdentityRole adminRole = new IdentityRole("Admin");
+              if (!ctx.Roles.Any())
+              {
+                  roleManager.CreateAsync(adminRole).GetAwaiter().GetResult();
+              }
+
+              if (!ctx.Users.Any(u => u.UserName == "admin"))
+              {
+                  IdentityUser adminUser = new IdentityUser
+                  {
+                      UserName = "admin",
+                      Email = "admin@example.com"
+                  };
+                  userManager.CreateAsync(adminUser, "P@ssword123!").GetAwaiter().GetResult();
+                  userManager.AddToRoleAsync(adminUser, adminRole.Name).GetAwaiter().GetResult();
+              }        
+          }
+      }
+    ```
+    </details>
+      
 - ### User Repository  
   - **Domain**
     <details>
