@@ -238,21 +238,6 @@
       }
       ```
     </details>
-      
-  - **Infrastructure**
-    <details>
-    <summary>Persistence/ApplicationDbContext.cs</summary>
-      
-      ```csharp
-      public class ApplicationDbContext : IdentityDbContext
-      {
-          public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
-          {
-
-          }
-      }
-      ```
-    </details>  
 
   - **Application**
     <details>
