@@ -211,7 +211,67 @@
       ```
     </details>
   </details>    
-- ### User Repository
+- ### Repository
+  - **Infrastructure**
+    <details>
+    <summary>Persistence/ApplicationDbContext.cs</summary>
+      
+      ```csharp
+      public class ApplicationDbContext : IdentityDbContext
+      {
+          public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+          {
+
+          }
+      }
+      ```
+    </details>  
+      
+    <details>
+    <summary>Persistence/UnitOfWork.cs</summary>
+      
+      ```csharp
+      public sealed class UnitOfWork : IUnitOfWork
+      {
+          private readonly ApplicationDbContext _ctx;
+
+          public UnitOfWork(ApplicationDbContext ctx)
+          {
+              _ctx = ctx;
+          }
+
+          public Task SaveChangesAsync(CancellationToken cancellationToken = default)
+          {
+              return _ctx.SaveChangesAsync(cancellationToken);
+          }
+      }
+      ```
+    </details>
+      
+  - **Infrastructure**
+    <details>
+    <summary>Persistence/ApplicationDbContext.cs</summary>
+      
+      ```csharp
+      public class ApplicationDbContext : IdentityDbContext
+      {
+          public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
+          {
+
+          }
+      }
+      ```
+    </details>  
+
+  - **Application**
+    <details>
+    <summary>Persistence/IUnitOfWork.cs</summary>
+      
+      ```csharp
+     
+      ```
+    </details>        
+
   - **Domain**
     <details>
     <summary>Aggregates/User.cs</summary>
