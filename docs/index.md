@@ -44,7 +44,8 @@
           - PostResponse.cs 
       - ApiRoutes.cs
   - Options
-    - ApiSwaggerOptions.cs 
+    - ApiSwaggerOptions.cs
+  - DependencyInjection.cs
   </details>
 
 - <details>
@@ -56,7 +57,6 @@
       - PostsController.cs
       - TagsController.cs
       - ErrorController.cs
-  - DependencyInjection.cs
   </details>
    
 - <details><summary>Infrastructure</summary>
@@ -116,13 +116,27 @@
 
 - ### Dependency Injection
   - <details>
-      <summary>Presentation/DependencyInjection.cs</summary>
+      <summary>Web/DependencyInjection.cs</summary>
       
       ```csharp
-      public static IServiceCollection AddPresentation(this IServiceCollection services)
-        {
-            return services;
-        }
+              public static IServiceCollection AddPresentation(this IServiceCollection services)
+              {
+                  services.AddIdentity<IdentityUser, IdentityRole>(options =>
+                  {
+                      options.Password.RequireDigit = false;
+                      options.Password.RequireNonAlphanumeric = false;
+                      options.Password.RequireUppercase = false;
+                      options.Password.RequiredLength = 6;
+                  })
+          .AddRoles<IdentityRole>()
+          .AddEntityFrameworkStores<ApplicationDbContext>();
+
+                  services.AddSwaggerGen(x =>
+                  {
+                      x.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo {Title="My Api", Version="v1" });
+                  });
+                  return services;
+              }
       ```
     </details>
   - <details>
