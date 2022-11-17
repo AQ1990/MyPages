@@ -601,17 +601,6 @@
 - ### Swagger
   - **Web**
     <details>
-    <summary>Secrets</summary>
-    
-    ```json
-    {
-      "JwtSettings": {
-        "Secret": "super-secret-secret"
-      }
-    }
-    ```
-    </details>
-    <details>
       <summary>appsettings.Development</summary>
       
       ```json
