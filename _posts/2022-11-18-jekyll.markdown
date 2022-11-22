@@ -1,0 +1,21 @@
+---
+layout: post
+title: "My Jekyll notes"
+date: 18.11.2022
+categories: jekyll
+---
+
+
+`jekyll new MyPages --force` Создать проект jekyll в папке MyPages если она уже существует
+
+`bundle exec jekyll serve` Запустить сервер jekyll на localhost:4000
+
+`jekyll -v` Узнать версию. Github Pages поддерживает не последнюю.
+
+dockerfile для jekyll
+```
+FROM ruby:3.1-alpine
+RUN apk updated
+RUN apk add --no-cache build-base gcc cmake git
+RUN gem update bundler && gem install bundler jekyll
+```
