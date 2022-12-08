@@ -4,8 +4,9 @@ title: "My Jekyll notes"
 date: 18.11.2022
 categories: jekyll
 ---
-
-`bundle exec jekyll serve` Запустить сервер jekyll на localhost:4000
+`Ctrl+Shift+P`, `Open folder in container`
+---
+`bundle exec jekyll serve --livereload` Запустить сервер jekyll на localhost:4000
 
 dockerfile для jekyll
 ```
@@ -21,9 +22,9 @@ RUN gem update bundler && gem install bundler jekyll
 
 `docker image history 83b` Посмотреть историю имиджа с id начинающимся на 83b
 
-`docker run -d` запустить имидж, не отключать при закрытии терминала.
+`docker run -d` запустить из имиджа контейнер, не отключать при закрытии терминала.
 `docker run --name mycontainer -p 8080:80 github-pages-jekyll:1.0.0` 
-Запустить имидж в контейнере mycontainer, по адресу localhost:8080 (внутри контейнера порт 80)
+Запустить из имиджа контейнер mycontainer, по адресу localhost:8080 (внутри контейнера порт 80)
 
 `jekyll -v` Узнать версию. Github Pages поддерживает не последнюю.
 `bundle remove jekyll`
