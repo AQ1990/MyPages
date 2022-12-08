@@ -35,9 +35,3 @@ RUN gem update bundler && gem install bundler jekyll
 `bundle add kramdown-parser-gfm`
 `bundle install`
 `bundle update`
-
-В _config.yml:
-```
-baseurl: "/MyPages"
-url: "https://aq1990.github.io"
-```

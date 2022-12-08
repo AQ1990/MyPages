@@ -28,3 +28,9 @@ categories: jekyll
     plugins:
     - jekyll-feed
 </details>
+
+В _config.yml:
+```
+baseurl: "/MyPages"
+url: "https://aq1990.github.io"
+```
