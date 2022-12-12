@@ -26,6 +26,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Google search results) and in your feed.xml site description.
 baseurl: "MyPages"
 url: "https://aq1990.github.io"
+markdown: GFM
 twitter_username: jekyllrb
 github_username:  jekyll
 
