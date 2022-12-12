@@ -24,16 +24,17 @@ description: >- # this means to ignore newlines until "baseurl:"
   Write an awesome description for your new site here. You can edit this
   line in _config.yml. It will appear in your document head meta (for
   Google search results) and in your feed.xml site description.
-baseurl: "/MyPages"
+baseurl: "MyPages"
 url: "https://aq1990.github.io"
 twitter_username: jekyllrb
 github_username:  jekyll
 
 # Build settings
-remote_theme: pages-themes/cayman@v0.2.0
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
+
+remote_theme: benbalter/retlab
 
 # Exclude from processing.
 # The following items will not be processed, by default.
