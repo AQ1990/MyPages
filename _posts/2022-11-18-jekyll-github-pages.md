@@ -30,10 +30,8 @@ categories: jekyll
 </details>
 
 В _config.yml:
-```
-baseurl: "/MyPages"
+`baseurl: "MyPages"` Название репозитория на гитхабе
 url: "https://aq1990.github.io"
-```
 
 Запустить
 `bundle exec jekyll serve` Первый запуск
@@ -73,4 +71,11 @@ defaults:
       layout: "posts"
 
 11. Тема
-gem "minima", "~> 2.5"
+Там где `gem "minima", "~> 2.5"`
+Добавить `gem "jekyll-theme-hacker"`
+Выполнить `bundle install`
+В _config.yml
+theme: jekyll-theme-hacker
+
+19. Github Pages
+    Ветка git должна называться `gh_pages`
