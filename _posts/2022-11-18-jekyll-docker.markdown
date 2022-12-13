@@ -27,11 +27,19 @@ RUN gem update bundler && gem install bundler jekyll
 Запустить из имиджа контейнер mycontainer, по адресу localhost:8080 (внутри контейнера порт 80)
 
 `jekyll -v` Узнать версию. Github Pages поддерживает не последнюю.
+
 `bundle remove jekyll`
+
 `bundle add jekyll --version "~>3.9.2"`
+
 `jekyll new MyPages --force --skip-bundle .` Создать проект jekyll в папке MyPages если она уже существует
+
 `bundle exec jekyll serve --livereload` Запустить сервер jekyll на localhost:4000
+
 `bundle add webrick`
+
 `bundle add kramdown-parser-gfm`
+
 `bundle install`
+
 `bundle update`
